@@ -1,4 +1,4 @@
+# Throw in gravity physics simulation
 A simple physics simulation of an object thrown in a gravitational field.
 
-Github pages site:
-<a href="http://example.com/" target="_blank">Hello, world!</a>
+<a href="https://simsine.github.io/Throw_in_gravity/" target="_blank"><h1>Github pages site</h1></a>
