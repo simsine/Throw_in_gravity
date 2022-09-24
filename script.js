@@ -1,6 +1,8 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+ctx.lineWidth = 5;
+
 function calculateX(v_0_x, t) {
     return v_0_x * t + x_0;
 }
@@ -52,7 +54,6 @@ function draw() {
         ctx.beginPath();
         ctx.moveTo(x_0, y_0);
         ctx.lineTo(x_0 + v_0_x, y_0 -v_0_y);
-        ctx.lineWidth = 5;
         ctx.stroke();
 
         x = calculateX(v_0_x, t);
