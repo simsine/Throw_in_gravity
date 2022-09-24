@@ -77,12 +77,9 @@ window.onload = function () {
     // draw();
 };
 
-draw();
-
 canvas.addEventListener("click", function (evt) {
     var mousePos = getMousePos(canvas, evt);
     updateVXY(mousePos.x, -mousePos.y + window.innerHeight);
-    console.log(mousePos.x, -mousePos.y + window.innerHeight);
 }, false);
 
 function getMousePos(canvas, evt) {
@@ -95,4 +92,7 @@ function getMousePos(canvas, evt) {
 
 function handleInputFields() {
     updateVXY(VX.value, VY.value);
+    console.log("Handled!")
 }
+
+draw();
