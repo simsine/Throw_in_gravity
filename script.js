@@ -52,6 +52,7 @@ function draw() {
         ctx.beginPath();
         ctx.moveTo(x_0, y_0);
         ctx.lineTo(x_0 + v_0_x, y_0 -v_0_y);
+        ctx.lineWidth = 5;
         ctx.stroke();
 
         x = calculateX(v_0_x, t);
