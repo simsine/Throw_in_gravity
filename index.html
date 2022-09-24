@@ -9,11 +9,13 @@
     <style>
         /* Roboto font */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+        * {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+        }
         body {
             margin: 0;
             overflow: hidden;
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
         }
         .container,
         canvas {
@@ -22,7 +24,18 @@
         }
         .container {
             margin: 10px;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
         }
+        
+        @media screen and (max-width: 650px) {
+		    .container {
+                flex-direction: column;
+		    }
+	    }
+
         button {
             z-index: 1;
             padding: 10px;
@@ -33,17 +46,23 @@
 
 <body onresize="reSize()">
     <canvas></canvas>
-    <div class="container" style="display: flex; align-items: center; gap: 0.5rem;">
+    <div class="container">
         <button onclick="reset()">Reset time</button>
         
-        <label for="VY">VY:</label>
-        <input id="VY" type="range" onchange="handleInputFields()" name="VY" value="50" min="0" max="100">
+        <div>
+            <label for="VY">VY:</label>
+            <input id="VY" type="range" onchange="handleInputFields()" name="VY" value="50" min="0" max="100">
+        </div>
 
-        <label for="VX">VX:</label>
-        <input id="VX" type="range" onchange="handleInputFields()" name="VX" value="50" min="0" max="100">
+        <div>
+            <label for="VX">VX:</label>
+            <input id="VX" type="range" onchange="handleInputFields()" name="VX" value="50" min="0" max="100">
+        </div>
 
-        <label for="showPath">Show path:</label>
-        <input id="showPath" type="checkbox" onchange="handleInputFields()" name="showPath">
+        <div>
+            <label for="showPath">Show path:</label>
+            <input id="showPath" type="checkbox" onchange="handleInputFields()" name="showPath">
+        </div>
     </div>
 
     <script src="./script.js"></script>
