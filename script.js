@@ -1,6 +1,8 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+ctx.lineWidth = 5;
+
 function calculateX(v_0_x, t) {
     return v_0_x * t + x_0;
 }
