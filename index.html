@@ -8,9 +8,12 @@
     <title>Physics</title>
 
     <style>
+        /* Roboto font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
         body {
             margin: 0;
             overflow: hidden;
+            font-family: "Roboto";
         }
 
         .container,
@@ -35,12 +38,12 @@
     <canvas></canvas>
     <div class="container" style="display: flex; align-items: center; gap: 0.5rem;">
         <button onclick="reset()">Reset time</button>
+        
+        <label for="VY">VY:</label>
+        <input id="VY" type="range" onchange="handleInputFields()" name="VY" value="50" min="0" max="100">
 
         <label for="VX">VX:</label>
-        <input id="VX" type="range" onchange="handleInputFields()" name="VX" value="50" min="-100" max="100">
-
-        <label for="VY">VY:</label>
-        <input id="VY" type="range" onchange="handleInputFields()" name="VY" value="50" min="-100" max="100">
+        <input id="VX" type="range" onchange="handleInputFields()" name="VX" value="50" min="0" max="100">
 
         <label for="showPath">Show path:</label>
         <input id="showPath" type="checkbox" onchange="handleInputFields()" name="showPath">
