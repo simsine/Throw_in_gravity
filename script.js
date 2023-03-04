@@ -9,8 +9,8 @@ function calculateY(v_0_y, t, g) {
 }
 
 // Horizontal and vertical start velocity
-let v_0_x = VX.value;
-let v_0_y = VY.value;
+let v_0_x = POWER.value * Math.cos(ANGLE.value*Math.PI/180)
+let v_0_y = POWER.value * Math.sin(ANGLE.value*Math.PI/180)
 // Function to update VX&Y values + clear the screen
 function updateVXY(vx, vy) {
     ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -35,10 +35,9 @@ let t = 0;
 const stepSize = 0.05;
 const g = 9.81;
 
-let fps = 144;
+let fps = 120;
 
 function draw() {
-
     setTimeout(function() {
         requestAnimationFrame(draw);
 
@@ -52,7 +51,9 @@ function draw() {
         ctx.beginPath();
         ctx.moveTo(x_0, y_0);
         ctx.lineTo(x_0 + v_0_x, y_0 -v_0_y);
+        ctx.setLineDash([7, 15]);
         ctx.lineWidth = 3;
+        ctx.lineCap = "round"
         ctx.stroke();
 
         x = calculateX(v_0_x, t);
@@ -74,25 +75,15 @@ function reSize() {
 }
 window.onload = function () {
     reSize();
-    // setInterval(draw, 16.7);
-    // draw();
 };
 
 canvas.addEventListener("click", function (evt) {
-    var mousePos = getMousePos(canvas, evt);
-    updateVXY(mousePos.x, -mousePos.y + window.innerHeight);
+    updateVXY(evt.clientX, -evt.clientY + window.innerHeight);
 }, false);
 
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-    };
-}
-
 function handleInputFields() {
-    updateVXY(VX.value, VY.value);
+    console.log(POWER.value, ANGLE.value)
+    updateVXY(POWER.value * Math.cos(ANGLE.value*Math.PI/180), POWER.value * Math.sin(ANGLE.value*Math.PI/180));
     console.log("Handled!")
 }
 
